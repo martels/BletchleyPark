@@ -1,11 +1,17 @@
+//-----------VER 2.0------------//
+
 #ifndef ENIGMA_H
 #define ENIGMA_H
 
 #include <iostream>
+#include <list>
+#include <iterator>
 
 const int ALPHABET_NUM = 26;
 
 using namespace std;
+
+
 
 class rotor
 {

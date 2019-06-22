@@ -1,3 +1,5 @@
+//-----------VER 1.2-----------//
+
 #ifndef ENIGMA_CLASS
 #define ENIGMA_CLASS
 

@@ -309,127 +309,113 @@ void enigma::rotate()
 
 int enigma::send(int msg)
 {
-    for(int i = 0; i < msg; i++)
+    while(rotorA.getIndex() != msg)
     {
         rotorA.iterate();
     }
-
     msg = rotorA.getLink();
-    
-    for(int i = 0; i < msg; i++)
+    rotorA.returnPointer();
+
+    while(rotorB.getIndex() != msg)
     {
         rotorB.iterate();
     }
-    
     msg = rotorB.getLink();
-    
-    for(int i = 0; i < msg; i++)
+    rotorB.returnPointer();
+
+    while(rotorC.getIndex() != msg)
     {
         rotorC.iterate();
     }
-    
     msg = rotorC.getLink();
-    
-    for(int i = 0; i < msg; i++)
+    rotorC.returnPointer();
+
+    while(reflect.getIndex() != msg)
     {
         reflect.iterate();
     }
-    
     msg = reflect.getLink();
-    rotorA.returnPointer();
-    rotorB.returnPointer();
-    rotorC.returnPointer();
     reflect.returnPointer();
 
-    // for(int i = 0; i < msg; i++)
-    // {
-    //     rotorC.iterate();
-    // }
+    while(rotorC.getIndex() != msg)
+    {
+        rotorC.iterate();
+    }
+    msg = rotorC.getLink();
+    rotorC.returnPointer();
 
-    // msg = rotorC.getIndex();
+    while(rotorB.getIndex() != msg)
+    {
+        rotorB.iterate();
+    }
+    msg = rotorB.getLink();
+    rotorB.returnPointer();
 
-    // for(int i = 0; i < msg; i++)
-    // {
-    //     rotorB.iterate();
-    // }    
+    while(rotorA.getIndex() != msg)
+    {
+        rotorA.iterate();
+    }
+    msg = rotorA.getLink();
+    rotorA.returnPointer();
 
-    // msg = rotorB.getIndex();
+    rotate();
 
-    // for(int i = 0; i < msg; i++)
-    // {
-    //     rotorA.iterate();
-    // }
-
-    // msg = rotorA.getIndex();
-
-    // rotorA.returnPointer();
-    // rotorB.returnPointer();
-    // rotorC.returnPointer();
-    // reflect.returnPointer();
-    // rotate();
     return msg;
 }
 
 int enigma::recv(int msg)
 {
-    // for(int i = 0; i < msg; i++)
-    // {
-    //     rotorA.iterate();
-    // }
-
-    // msg = rotorA.getIndex();
-    
-    // for(int i = 0; i < msg; i++)
-    // {
-    //     rotorB.iterate();
-    // }
-    
-    // msg = rotorB.getIndex();
-    
-    // for(int i = 0; i < msg; i++)
-    // {
-    //     rotorC.iterate();
-    // }
-    
-    // msg = rotorC.getIndex();
-    
-    // for(int i = 0; i < msg; i++)
-    // {
-    //     reflect.iterate();
-    // }
-    
-    msg = reflect.getLink();
-    rotorA.returnPointer();
-    rotorB.returnPointer();
-    rotorC.returnPointer();
-    reflect.returnPointer();
-
-    for(int i = 0; i < msg; i++)
-    {
-        rotorC.iterate();
-    }
-
-    msg = rotorC.getIndex();
-
-    for(int i = 0; i < msg; i++)
-    {
-        rotorB.iterate();
-    }    
-
-    msg = rotorB.getIndex();
-
-    for(int i = 0; i < msg; i++)
+    while(rotorA.getLink() != msg)
     {
         rotorA.iterate();
     }
-
     msg = rotorA.getIndex();
-
     rotorA.returnPointer();
+
+    while(rotorB.getLink() != msg)
+    {
+        rotorB.iterate();
+    }
+    msg = rotorB.getIndex();
     rotorB.returnPointer();
+
+    while(rotorC.getLink() != msg)
+    {
+        rotorC.iterate();
+    }
+    msg = rotorC.getIndex();
     rotorC.returnPointer();
+
+    while(reflect.getLink() != msg)
+    {
+        reflect.iterate();
+    }
+    msg = reflect.getIndex();
     reflect.returnPointer();
-    // rotate();
+
+    while(rotorC.getLink() != msg)
+    {
+        rotorC.iterate();
+    }
+    msg = rotorC.getIndex();
+    rotorC.returnPointer();
+
+    while(rotorB.getLink() != msg)
+    {
+        rotorB.iterate();
+    }
+    msg = rotorB.getIndex();
+    rotorB.returnPointer();
+
+    while(rotorA.getLink() != msg)
+    {
+        rotorA.iterate();
+    }
+    msg = rotorA.getIndex();
+    rotorA.returnPointer();
+
+    rotate();
+
     return msg;
 }
 

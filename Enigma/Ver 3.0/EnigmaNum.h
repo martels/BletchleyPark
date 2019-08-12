@@ -15,6 +15,8 @@ class EnigmaNum
             rotor5[ALPHANUM], rotor6[ALPHANUM], rotor7[ALPHANUM], rotor8[ALPHANUM], reflector1[ALPHANUM], 
             reflector2[ALPHANUM];
         EnigmaNum();
+        int convert2int(char msg);
+        char convert2char(int msg);
 };
 
 
@@ -135,6 +137,29 @@ EnigmaNum::EnigmaNum()
         reflector2[i] = p;
         p = 0;
     }
+}
+
+int EnigmaNum::convert2int(char msg)
+{
+    int count = 0;
+
+    while(msg != Aalphabet[count] && count <= ALPHANUM)
+    {
+        count++;
+    }
+
+    if(count == ALPHANUM)
+    {
+        cout << "Error, invalid character." << endl;
+        return -1;
+    }
+
+    return numeric[count];
+}
+
+char EnigmaNum::convert2char(int msg)
+{
+    return Aalphabet[msg];
 }
 
 #endif

@@ -26,6 +26,7 @@ class Cont_List
     void addNode(int ind, int lin);
     void addNode(node *temp);
     void iterate();
+    void backStep();
     void click();
     void setInitial(int start);
     void returnPointer();
@@ -119,6 +120,11 @@ void Cont_List::addNode(node *temp)
 void Cont_List::iterate()
 {
     pointer = pointer->next;
+}
+
+void Cont_List::backStep()
+{
+    pointer = pointer->prev;
 }
 
 void Cont_List::click()
